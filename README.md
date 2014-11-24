@@ -1,5 +1,4 @@
-Sajax
-=====
+#Sajax
 
 Sajax is a python/jQuery extension for building ajax web applications.
 
@@ -10,17 +9,23 @@ side of things.
 
 A lot of how this was built was inspired from personal experience with an old PHP ajax framework, XAjax.
 
-Installation
-------------
+##Dependencies
+* <a href="http://jquery.com/">jQuery</a>
+    * v1.11.1 or greater, this is a jQuery/Python library and as such isn't compatible with straight javascript.
+    Further, in my original experience with the XAjax library from PHP, I found that the javascript side of things was
+    much messier and had several defects entrenched in it. I don't expect this to ever be large enough to suffer any
+    significant drawbacks by taking the "easy" route of jQuery.
+* <a href="https://github.com/danheberden/jquery-serializeForm">jQuery-serializeForm</a>
+    * So its not really a dependency, as sajax.getFormValues will fall back to jQuery's serialize method. 
+    jQuery-serializeForm will, however, construct an object representing the serialization of a form, compared to
+    jQuery's serialize() producing a url-encoded string.
 
-Usage
------
+##Installation
 
-Python:
-*******
+##Usage
 
-Javascript:
-***********
+###Python:
 
-Examples
---------
+###Javascript:
+
+##Examples
