@@ -3,41 +3,6 @@ function sajax() {
 }
 
 /**
- * Position element(s) by keyword
- *
- * @param selector
- */
-sajax.prototype.position = function(selector) {
-    selector = selector === undefined ? '' : selector;
-
-    var positioned = $('.positioned'+selector), i, elem, data;
-    for (i = 0; i < positioned.length; i++) {
-        elem = $(positioned[i]), data = elem.data();
-
-        switch(data['position']) {
-            case 'top-left':
-                elem.css({ 'left': '0px', 'top': '0px' });
-                break;
-            case 'top-center':
-                elem.css({ 'left': ($(window).width()-elem.outerWidth())/2+'px', 'top': '0px' });
-                break;
-            case 'top-right':
-                elem.css({ 'left': $(window).width()-elem.outerWidth()+'px', 'top': '0px' });
-                break;
-            case 'center':
-                elem.css({ 'left': ($(window).width()-elem.outerWidth())/2+'px', 'top': ($(window).height()-elem.outerHeight())/2+'px' });
-                break;
-            case 'bottom-left':
-                elem.css({ 'left': '0px', 'top': $(window).height()-elem.outerHeight()+'px' });
-                break;
-            case 'bottom-right':
-                elem.css({ 'top': $(window).height()-elem.outerHeight()+'px', 'left': $(window).width()-elem.outerWidth()+'px' });
-                break;
-        }
-    }
-}
-
-/**
  * Process sajax response (data)
  *
  * sajax.call binds this as the success processing method. data is a json array of
@@ -99,8 +64,10 @@ sajax.prototype.parseResponse = function(data) {
  * @param file
  */
 sajax.prototype.load = function(file) {
-    if (file != undefined)
-        this.loads_pending++;
+    if (file == undefined)
+        return false;
+
+    this.loads_pending++;
 
     try {
         switch(file.split('.').pop()) {
@@ -146,7 +113,7 @@ sajax.prototype.call = function(path, parameters) {
 /**
  * Build array from arguments, retrun
  *
- * @returns {{}}
+ * @returns {array}
  */
 sajax.prototype.buildData = function() {
     // extend string holds the js that will be eval'd into the returned object
@@ -170,8 +137,11 @@ sajax.prototype.buildData = function() {
  * Return serialized data for easy form consumption
  *
  * @param selector
- * @returns {{}}
+ * @returns {json}
  */
 sajax.prototype.getFormValues = function(selector) {
-    return $(selector).serializeForm();
+    if ($(selector).serializeForm)
+        return $(selector).serializeForm();
+    else
+        return $(selector).serialize();
 }
