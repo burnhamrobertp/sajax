@@ -8,7 +8,7 @@ from setuptools import setup
 
 setup(
     name='sajax',
-    version='0.1',
+    version='0.11',
     url='https://github.com/harkenn/sajax',
     license='BSD',
     author='Robert Burnham',
