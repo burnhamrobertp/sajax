@@ -2,7 +2,7 @@ import pkg_resources
 import pprint
 
 
-class Sajax:
+class Registrar:
     """Register Python routes or methods with Sajax.js
 
     Given a set of python routes or FlaskViews, register these routes so that they can be

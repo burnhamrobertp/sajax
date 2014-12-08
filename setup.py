@@ -2,7 +2,7 @@
 sajax
 -------------
 
-Python / jQuery AJAX library, structured similarly to old xajax library
+Flask / jQuery AJAX library, structured similarly to old xajax library
 """
 from setuptools import setup
 
@@ -13,9 +13,9 @@ setup(
     license='BSD',
     author='Robert Burnham',
     author_email='burnhamrobertp@gmail.com',
-    description="Python / jQuery AJAX library",
+    description="Python / Flask / jQuery AJAX library",
     long_description=__doc__,
-    py_modules=['sajax'],
+    packages=['sajax'],
     zip_safe=False,
     include_package_data=True,
     platforms='any',

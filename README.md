@@ -1,6 +1,6 @@
 #Sajax
 
-Sajax is a python/jQuery extension for building ajax web applications.
+Sajax is a Flask/jQuery extension for building ajax web applications.
 
 There are a ton of tools/libraries/frameworks out there that make AJAX really easy though, right? Turns out,
 there aren't really any that ease the transition between python and javascript specifically. Even jQuery's
