@@ -1,4 +1,4 @@
-from flask import jsonify, session, url_for
+from flask import jsonify, session, url_for, has_request_context
 import json, os
 
 
@@ -21,6 +21,11 @@ class Response:
 
 
     def __init__(self, cls=None):
+
+        # check for the presence of a request context
+        if not has_request_context():
+            return
+
         self._data = []
 
         # If we're loading a view and have not yet loaded its static dependencies, asynchronously load them
